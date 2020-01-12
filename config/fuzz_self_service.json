@@ -1,0 +1,77 @@
+{
+    "name": "fuzz_self_service",
+    "jobs": [
+        {
+            "path": "api/v1/activation/activate",
+            "exit_codes": [200, 500],
+            "timeout": 2,
+            "method": "POST",
+            "payload_type": "json",
+            "fields": [
+                {
+                    "name": "activationId",
+                    "type": "uuid"
+                },
+                {
+                    "name": "password",
+                    "type": "password"
+                },
+                {
+                    "name": "confirmPassword",
+                    "type": "password"
+                }
+            ]
+        },
+        {
+            "path": "api/v1/register",
+            "exit_codes": [200, 500],
+            "timeout": 2,
+            "method": "POST",
+            "payload_type": "json",
+            "fields": [
+                {
+                    "name": "email",
+                    "type": "email"
+                }
+            ]
+        },
+        {
+            "path": "api/v1/password/forgot",
+            "exit_codes": [200, 500],
+            "timeout": 2,
+            "method": "POST",
+            "payload_type": "json",
+            "fields": [
+                {
+                    "name": "email",
+                    "type": "email"
+                }
+            ]
+        },
+        {
+            "path": "api/v1/password/update",
+            "exit_codes": [200, 500],
+            "timeout": 2,
+            "method": "POST",
+            "payload_type": "json",
+            "fields": [
+                {
+                    "name": "otp",
+                    "type": "id"
+                },
+                {
+                    "name": "forgotPasswordId",
+                    "type": "uuid"
+                },
+                {
+                    "name": "password",
+                    "type": "password"
+                },
+                {
+                    "name": "confirmPassword",
+                    "type": "password"
+                }
+            ]
+        }
+    ]
+}

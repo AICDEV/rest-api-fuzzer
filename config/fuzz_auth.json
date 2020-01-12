@@ -1,0 +1,39 @@
+{
+    "name": "fuzz_authentication",
+    "jobs": [
+        {
+            "path": "api/v1/authenticate",
+            "exit_codes": [200, 500],
+            "timeout": 2,
+            "method": "POST",
+            "payload_type": "json",
+            "fields": [
+                {
+                    "name": "email",
+                    "type": "email"
+                },
+                {
+                    "name": "password",
+                    "type": "password"
+                }
+            ]
+        },
+        {
+            "path": "api/v1/accounts",
+            "exit_codes": [200, 500],
+            "timeout": 2,
+            "method": "GET",
+            "payload_type": "json",
+            "headers": [
+                {
+                    "name": "content-type",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Authorization",
+                    "type": "jwt"
+                }
+            ]
+        }
+    ]
+}
