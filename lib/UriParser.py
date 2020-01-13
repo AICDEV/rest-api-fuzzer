@@ -5,7 +5,7 @@ def parse_uri(uri):
 
     for type_s in Types.TypesEnum:
         if type_s.value in uri:
-            uri = uri.replace(f"%{type_s.value}", _get_random_for_type(type_s.value))
+            uri = uri.replace(f"%{type_s.value}",str( _get_random_for_type(type_s.value)))
 
     return uri
 
